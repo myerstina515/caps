@@ -15,3 +15,10 @@ setInterval(() => {
     events.emit('pickup', fakeOrder);
 }, 5000);
 
+events.on('delivered', thankYou);
+
+function thankYou (payload){
+    console.log(`VENDOR: Thank you for ordering ${payload.orderId}!`);
+}
+
+module.exports = thankYou;
