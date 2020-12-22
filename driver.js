@@ -1,23 +1,37 @@
 'use strict';
 
 
-const event = require('./events');
+const { logicalExpression } = require('@babel/types');
+const events = require('./events');
 
-event.on('pickup', pickup);
-event.on('in-transit', inTransit);
-console.log('made it to driver page')
+events.on('pickup', pickup);
+events.on('inTransit', inTransit);
+// console.log('made it to driver page')
+
 
 function pickup (payload){
     setTimeout(() => {
-        console.log(`DRIVER: picked up ${payload.orderId}`);
-        event.emit('in-transit', payload);
+        events.emit('inTransit', payload);
     }, 1000);
+}
+
+events.on('pickup', consoleLog);
+
+function consoleLog (payload){
+    console.log(`DRIVER: Picked up ${payload.orderId}!`);
 }
 
 function inTransit (payload){
     setTimeout(() => {
         console.log('delivered');
-        event.emit('delivered', payload)
+        events.emit('delivered', payload)
     }, 3000);
 }
 
+events.on('inTransit', logInTransit);
+
+function logInTransit(payload){
+    console.log(`Delivered ${payload.orderId}`);
+}
+
+module.exports = {consoleLog, logInTransit};
