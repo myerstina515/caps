@@ -6,13 +6,13 @@
 
 ### Links and Resources
 
-- [ci/cd](https://github.com/myerstina515/caps/pull/2)
+- [ci/cd](https://github.com/myerstina515/caps/pull/5)
 
 - Resources: Stacy Burris, Sara Strasner
 
 ### Setup
 
-> npm i jest faker dotenv
+> npm i jest faker dotenv socket.io socket.io-client
 
 #### `.env` requirements (where applicable)
 
@@ -20,7 +20,9 @@
 
 #### How to initialize/run your application (where applicable)
 
-- `nodemon`
+- terminal 1: `node caps.js`
+- terminal 2: `node driver.js`
+- terminal 3: `node vendor.js`
 
 #### How to use your library (where applicable)
 

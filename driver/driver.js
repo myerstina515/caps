@@ -13,7 +13,7 @@ function pickup (payload){
     }, 1000);
     setTimeout(() => {
         socket.emit('delivered', payload)
-        console.log(`VENDOR: Thank you for delivering order ${payload.orderId}!`);
+        console.log(`VENDOR: Thank you for delivering order num ${payload.orderId}!`);
     }, 3000);
 }
 

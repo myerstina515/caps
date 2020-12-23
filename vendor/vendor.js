@@ -32,13 +32,13 @@ setInterval(() => {
 socket.on('pickup', consoleLog);
 
 function consoleLog (payload){
-    console.log(`DRIVER: in-transit with order ${payload.orderId}!`);
+    console.log(`DRIVER: in-transit with order num ${payload.orderId}!`);
 }
 
 socket.on('pickup', logInTransit);
 
 function logInTransit(payload){
-    console.log(`delivered order ${payload.orderId}`);
+    console.log(`delivered order num ${payload.orderId}`);
 }
 
 module.exports = {consoleLog, logInTransit};
