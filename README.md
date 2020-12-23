@@ -26,10 +26,11 @@
 
 #### Tests
 
-- How do you run tests?
-- Any tests of note?
+- How do you run tests? npm test
+- Any tests of note? testing for console.logs
 - Describe any tests that you did not complete, skipped, etc
 
 #### UML
 
-[UML](/UML.png)
+[UML](/assets/UML.png)
+[UMLDay2](/assets/UML-Day2.jpg)
