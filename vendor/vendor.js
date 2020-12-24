@@ -6,7 +6,7 @@ const socket = io.connect(host);
 
 require('dotenv').config();
 const faker = require('faker');
-const storeName = process.env.STORE;
+const storeName = '1-206-flowers';
 console.log('made it to vendor page');
 
 // const capsConnection = io.connect(`${host}`);
@@ -17,6 +17,7 @@ console.log('made it to vendor page');
 //     console.log(`this is the pickup handler: ${payload.orderId}`);
 // }
 
+// emitting the join event so the caps page can hear it when it listens
 socket.emit('join', storeName);
 
 setInterval(() => {
@@ -29,16 +30,9 @@ setInterval(() => {
     socket.emit('pickup', fakeOrder);
 }, 5000);
 
-socket.on('pickup', consoleLog);
-
-function consoleLog (payload){
-    console.log(`DRIVER: in-transit with order num ${payload.orderId}!`);
+socket.on('pickup', thankYou)
+function thankYou (payload){
+    console.log(`VENDOR: Thank you for delivering order num ${payload.orderId}!`);
 }
 
-socket.on('pickup', logInTransit);
-
-function logInTransit(payload){
-    console.log(`delivered order num ${payload.orderId}`);
-}
-
-module.exports = {consoleLog, logInTransit};
+module.exports = thankYou;
