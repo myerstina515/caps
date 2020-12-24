@@ -2,9 +2,9 @@
   "name": "caps",
   "version": "1.0.0",
   "description": "",
-  "main": "caps.js",
+  "main": "queue-server.js",
   "scripts": {
-    "start": "node caps.js",
+    "start": "node queue-server.js",
     "test": "jest --coverage"
   },
   "repository": {

@@ -17,16 +17,25 @@ describe('console logs', () => {
     });
 
     it('will log something into the console', () => {
-        caps.emit('delivered', {orderID: 1});
+        // vendor( { orderId: 1 } );
+        // expect(consoleSpy).toBeCalled();
+        
+        driver.emit('delivered', {orderID: 1});
         expect(consoleSpy).toBeCalled();
     });
     it('will log properly into the console', () => {
-        caps.emit('pickup', {orderID: 1});
+        driver( {orderId: 1 } );
         expect(consoleSpy).toBeCalled();
+        
+        // caps.emit('pickup', {orderID: 1});
+        // expect(consoleSpy).toBeCalled();
     });
     it('will log inTransit into the console', () => {
-        caps.emit('inTransit', {orderID: 1});
+        driver( {orderId: 1} );
         expect(consoleSpy).toBeCalled();
+        
+        // caps.emit('inTransit', {orderID: 1});
+        // expect(consoleSpy).toBeCalled();
     });
 });
 
